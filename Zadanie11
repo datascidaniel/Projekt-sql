@@ -1,0 +1,55 @@
+-- Agregaty - Zadanie 1
+-- Arrow down
+-- a. Policz, ile jest rekordów w tabeli (po id).
+select count(id) from batman;
+
+-- b. Policz, ile jest rekordów z wiekiem.
+
+select count(age) from batman;
+-- c. Ilu mężczyzn ma więcej niż 40 lat?
+select count(age) from batman
+where age> 40;
+-- d. Oblicz sumę wszystkich cen.
+select sum(price) from batman;
+-- e. Oblicz łączny wiek kobiet.
+select sum(age) from batman
+where sex='F';
+-- f. Podaj łączną wartość komputera i okna.
+select sum(price) from batman
+where gift='komputer' or gift= 'okno';
+-- g. Podaj maksymalną cenę.
+select max(price) from batman;
+-- h. Podaj najpóźniejszą datę
+select max(start_date) from batman;
+-- i. Podaj nazwisko rozpoczynające się literą, która jest najbliżej końca alfabetu
+select max(last_name) from batman;
+-- j. Podaj minimalną cenę.
+select min(price) from batman;
+-- k. Podaj najwcześniejszą datę
+select min(start_date) from batman;
+
+-- l. Podaj nazwsisko rozpoczynające się literą, która jest najbliżej początku alfabetu
+select min(last_name) from batman;
+
+-- m. Jednocześnie podaj cenę minimalną oraz maksymalną. Nadaj odpowiednie aliasy.
+
+  select  MIN(price) AS MinimalnaCena,
+          MAX(price) AS MaksymalnaCena
+FROM batman;
+
+-- n. Oblicz różnicę pomiędzy ceną maksymalną, a minimalną.
+SELECT 
+    MAX(price) - MIN(price) AS RoznicaCen
+FROM batman;
+-- o. Oblicz średnią wieku.
+select avg(age) as średnia_wieku from batman  ;
+-- p. Oblicz średnią wieku za pomocą COUNT oraz SUM.
+select count(age) / sum(age) as średnia_wieku from batman;
+-- q. Oblicz średni wiek dla kobiet oraz średni wiek dla mężczyzn.
+SELECT 
+    sex AS Płeć,
+    AVG(age) AS SredniaWieku
+FROM 
+    batman
+GROUP BY 
+    sex;
