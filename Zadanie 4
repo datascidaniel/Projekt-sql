@@ -1,0 +1,76 @@
+-- 1. Załóż bazę o nazwie: Lista Pracowników.
+create database Lista_pracowników; 
+
+-- 2. Załóż tabelę o nazwie: Pracownicy i utwórz 5 kolumn, a także dobierz i ustaw dla każdej constraints:
+-- ID
+-- Imię 
+-- Nazwisko
+-- Stanowisko
+-- Dział
+create table Pracownicy (
+ID integer ,
+Imię text, 
+Nazwisko text,
+Dział text)
+;
+
+
+
+-- 3. Wprowadź dane osób kilku, z którymi pracujesz w Swojej firmie. Każda pozycja ma mieć wypełnione wszystkie dane zgodnie z wymaganiem.
+
+insert into Pracownicy
+(id, Imię, Nazwisko, Dział )
+values
+(1, 'Jan', 'Kowalski', 'Księgowość'),
+(2, 'Paweł', 'Krzak',  'Monter'),
+(3, 'Ewelina', 'Kosa', 'Monter' ),
+(4, 'Piotr', 'Majewski', 'Analityk_Biznesowy'),
+(5, 'Katarzyna', 'Cicha', 'Cybersecurity' )
+;
+
+
+-- 4. Sprawdź, czy wszystkie dane wyświetlają się prawidłowo.
+select * from Pracownicy;
+
+-- 5. Dodaj kolumnę: Data zatrudnienia.
+ALTER table Pracownicy
+
+add column Data_zatrudnienia date;
+
+
+-- 6. Dodaj nowego pracownika uzupełniając wszystkie dane.
+insert into Pracownicy
+(id, Imię, Nazwisko, Dział, Data_zatrudnienia )
+values
+(6, 'Stefan', 'Dąbrowski', 'Księgowość', '2018-06-15');
+
+-- 7. Sprawdź, czy dane zostały zmienione, wyświetlając wszystkie pozycje.
+
+select * from Pracownicy;
+
+-- 8. Uzupełnij wszystkie brakujące dane w kolumnie o nazwie Data Zatrudnienia.
+update Pracownicy
+set  data_zatrudnienia = '2019-09-09'
+where ID=1;
+
+update Pracownicy
+set  data_zatrudnienia = '2021-08-08'
+where ID=2;
+
+update Pracownicy
+set  data_zatrudnienia = '2019-07-07'
+where ID=3;
+
+update Pracownicy
+set  data_zatrudnienia = '2018-06-04'
+where ID=4;
+
+update Pracownicy
+set  data_zatrudnienia = '2012-02-01'
+where ID=5;
+
+
+-- 9. Sprawdź, czy dane zostały zmienione, wyświetlając je.
+
+
+select * from Pracownicy
