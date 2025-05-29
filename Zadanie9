@@ -1,0 +1,60 @@
+-- 1. Stwórz Bazę Pracownicy/Jeżeli ją już masz, zaktualizuj wpisy w tabelach.
+Create database Pracownicy;
+use  Pracownicy;
+-- 2. Stwórz Tabelę Pracownicy z pięcioma kolumnami, a także dobierz i ustaw dla każdej CONSTRAINTS:
+
+-- ID
+-- Imię
+-- Nazwisko
+-- Wiek
+-- Kurs
+
+Create table Pracownicy (
+id integer,
+imię text,
+Nazwisko text,
+wiek integer,
+kurs text);
+-- 3. Każdą tabelę uzupełnij danymi z załącznika, lub zaktualizuj.
+insert into Pracownicy
+values (1,	'Anna',	'NOWAK',	34,	'DS.'),
+(2,	'Roman',	'KOWALSKI',	42,	'DS.'),
+(3,	'Tomasz',	'WIŚNIEWSKI',	33,	'DS.'),
+(4,	'Agata', 'WÓJCIK',	43,	'DS.'),
+(5,	'Elżbieta',	'KOWALCZYK',	28,	'Java'),
+(6,	'Przemysław',	'KOWALCZYK',	34,	'Java'),
+(7,	'Robert',	'KOWALCZYK',	35,	'Java'),
+(8,	'Radosław',	'ZIELIŃSKI',	38,	'Java'),
+(9,	null,	'WOŹNIAK',	26,	'Java'),
+(10,	'Robert',	'SZYMAŃSKI',	34,	'Java'),
+(11,	'Radosław',	'DĄBROWSKI',	35,	null),
+(12,	'Robert',	'KOZŁOWSKI',	null,	'UX'),
+(13,	'Joanna',	'MAZUR',	26,	'UX'),
+(14,	'Radosław',	'JANKOWSKI',	27,	'UX'),
+(15,	'Patryk',	'LEWANDOWSKI',	28,	'Tester'),
+(16,	null,	'ZIELIŃSKI',	28,	'Tester'),
+(17,	'Andrzej',	'WOŹNIAK',	31,	'Tester'),
+(18,	'Andrze',	'LEWANDOWSKI',	30,	'Tester'),
+(19,	'Roman',	'KOWALCZYK',	39,	'Tester'),
+(20,	'Ewa',	'WOŹNIAK',	31,	'Tester');
+select * from pracownicy;
+-- 4. Wyświetl listę pracowników o Imieniu: Anna.
+select * from pracownicy
+where imię='Anna';
+-- 5. Wyświetl listę pracowników z brakującą daną w kolumnie Imię.
+select *  from pracownicy
+where Imię is null;
+-- 6. Wyświetl kursy prowadzone przez pracowników w wieku od 30 lat do 40 lat.
+select * from pracownicy
+where wiek>=30 and wiek<=40;
+
+-- 7. Wyświetl wiek pracowników z ID od 1 do 7.
+select wiek from pracownicy
+where id>=1 and id<=7; 
+-- 8. Wyświetl listę pracowników z brakującymi danymi w kolumnie wiek.
+select * from pracownicy
+where wiek is null;
+-- 9. Zmień nazwę kolumny „Kurs” na „Szkolenie”.
+alter table pracownicy
+change column kurs szkolenie text;
+select * from pracownicy;
