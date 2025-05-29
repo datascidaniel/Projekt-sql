@@ -1,0 +1,60 @@
+-- 1. Stwórz Bazę Pracownicy/Jeżeli ją już masz, zaktualizuj wpisy w tabelach.
+Create database Pracownicy;
+use Pracownicy;
+
+-- 2. Stwórz Tabelę Pracownicy z pięcioma kolumnami, a także dobierz i ustaw dla każdej CONSTRAINTS:
+
+-- ID
+-- Imię
+-- Nazwisko
+-- Wiek
+-- Kurs
+
+Create table Pracownicy (
+id integer,
+imię text,
+Nazwisko text,
+wiek integer,
+kurs text);
+
+-- 3. Każdą tabelę uzupełnij danymi z załącznika, lub zaktualizuj.
+insert into Pracownicy
+values (1,	'Anna',	'NOWAK',	34,	'DS.'),
+(2,	'Roman',	'KOWALSKI',	42,	'DS.'),
+(3,	'Tomasz',	'WIŚNIEWSKI',	33,	'DS.'),
+(4,	'Anna', null,	43,	'DS.'),
+(5,	'Elżbieta',	'KOWALCZYK',	null,	'Java'),
+(6,	'Anna',	'KOWALCZYK',	null,	'Java'),
+(7,	'Robert',	'KOWALCZYK',	null,	'Java'),
+(8,	'Radosław',	'ZIELIŃSKI',	null,	'Java'),
+(9,	'Anna',	'WOŹNIAK',	null,	'Java'),
+(10,	'Robert',	'SZYMAŃSKI',	34,	'tester'),
+(11,	'Radosław',	'DĄBROWSKI',	35,	null),
+(12,	'Robert',	'KOZŁOWSKI',	null,	'UX'),
+(13,	'Joanna',	'MAZUR',	26,	'UX'),
+(14,	'Radosław',	'JANKOWSKI',	27,	'UX'),
+(15,	'Patryk',	'LEWANDOWSKI',	28,	null),
+(16,	null,	'ZIELIŃSKI',	28,	null),
+(17,	'Andrzej',	'WOŹNIAK',	31,	null),
+(18,	'Andrze',	'LEWANDOWSKI',	30,	null),
+(19,	'Roman',	'ZIELIŃSKI',	39,	null),
+(20,	'Ewa',	'WOŹNIAK',	31,	null);
+
+ select * from pracownicy;
+-- 4. Wyświetl listę pracowników wg kolumny Imię, eliminując powtarzające się pozycje.
+select distinct imię from Pracownicy;
+-- 5. Wyświetl listę pracowników wg kolumny Nazwisko eliminując powtarzające się pozycje.
+select distinct Nazwisko from pracownicy;
+-- 6. Wyświetl kursy prowadzone przez pracowników o Nazwisku: „Kowalczyk”.
+select * from pracownicy 
+where Nazwisko like 'Kowalczyk';
+-- 7. Wyświetl listę pracowników, dla których nie znamy wieku.
+select * from pracownicy
+where wiek is null;
+-- 8. Wyświetl wiek pracowników o Imieniu „Patryk”.
+select wiek from pracownicy
+where Imię like 'Patryk';
+-- lub where Imię=Patryk;
+-- 9. Zmień nazwę tabeli z  „Pracownicy” na „Mentorzy”.
+alter table 
+pracownicy rename Mentorzy;
