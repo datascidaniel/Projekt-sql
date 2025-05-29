@@ -1,0 +1,73 @@
+Zadanie 3
+-- 1. Załóż bazę o nazwie: Lista Prezentów.
+create database Lista_Prezentów; 
+use Lista_Prezentów;
+
+
+-- 2. Załóż tabelę o nazwie: Prezenty_2020 i utwórz 5 kolumn, a także dobierz i ustaw dla każdej constraints:
+
+-- ID INTEGER
+-- Imię obdarowanego
+-- Pomysł na prezent
+-- Cena
+-- Miejsce zakupu
+
+create table Prezenty_2020 (
+id integer,
+imię_obdarowanego text,
+pomysł_na_prezent text,
+Cena  integer,
+Miejsce_zakupu text
+);
+-- 3. Wprowadź dane osób, dla których kupujesz świąteczne prezenty (min. 5). Każda pozycja ma mieć wypełnione wszystkie dane zgodnie z wymaganiem.
+insert into Prezenty_2020 
+values 
+(1, 'Piotr', 'gra_komputerowa',150, 'steam');
+
+insert into Prezenty_2020 
+values 
+(2, 'Kazik', 'skarpetki', 50, 'fashion-house');
+
+insert into Prezenty_2020 
+values 
+(3, 'LAURA', 'lalka', 80, 'empik');
+
+insert into Prezenty_2020 
+values 
+(4, 'Paulinka', 'konik', 90, 'sklep');
+
+
+insert into Prezenty_2020 
+values 
+(5, 'Daniel', 'kubek', 30, 'allegro');
+
+
+-- 4. Sprawdź, czy wszystkie dane wyświetlają się prawidłowo.
+
+select * from Prezenty_2020; 
+
+
+
+-- 5. Zmień pomysł na prezent dla osoby zapisanej w pozycji 3 na wartość „Rower”.
+update prezenty_2020
+set pomysł_na_prezent = "Rower"
+where id=3; 
+-- 6. Sprawdź, czy dane zostały zmienione wyświetlając tylko tę pozycję.
+select * from prezenty_2020
+where id=3;
+-- 7. Usuń pozycję 1.
+delete from prezenty_2020
+where id=1;
+
+-- 8. Sprawdź, czy dane zostały zmienione, wyświetlając wszystkie pozycje.
+select * from prezenty_2020;
+-- 9. Usuń kolumnę o nazwie Miejsce zakupu.
+
+ALTER TABLE Prezenty_2020
+drop column Miejsce_zakupu; 
+
+
+-- 10. Wyświetl zawartość kolumny Imię obdarowanego dla pozycji 3,4,5 i sprawdź, czy dane są prawidłowe.
+
+select Imię_obdarowanego from prezenty_2020
+where id=3 or id=4 or id=5; 
