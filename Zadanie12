@@ -1,0 +1,9 @@
+-- Agregaty - Zadanie 2 - Funkcje matematyczne
+-- a. Podaj średnią wieku. Podaj zaokrąglony wynik do dwóch miejsc po przecinku.
+select round( avg(age),2) from batman;
+-- b. Wyświetl wartość bezwzględną liczby -3.
+select abs(-3) as Wartość_Bezwzględna;
+-- c. Wyświetl wynik mnożenie 2 * 3
+select 2*3;
+-- d. Wyświetl wynik dzielenia 6 przez 2
+select 6/2 ;
