@@ -1,0 +1,89 @@
+-- 1. Załóż bazę o nazwie: School_Coding.
+create database School_Coding;
+
+-- 2. Załóż tabelę o nazwie: Mentors i utwórz 6 kolumn, a także dobierz i ustaw dla każdej constraints:
+
+-- ID
+-- Imię 
+-- Nazwisko
+-- Specjalizacja
+-- Data zatrudnienia
+-- Data zwolnienia
+
+create table Mentors (
+id Integer,
+Imię text,
+Nazwisko text,
+specjalizacja text,
+data_zatrudnienia date,
+data_zwolnienia date
+);
+-- 3. Wprowadź dane (10 pozycji od 1 do 10). Każda pozycja ma mieć wypełnione wszystkie dane).
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(1, 'Jan', 'Kowalski', 'Python', '2010-02-02', '2015-02-02'),
+(2, 'Paweł', 'Krzak', 'Java_Developer', '2011-03-03', '2015-03-03' ),
+(3, 'Ewelina', 'Kosa', 'SQL', '2017-03-03', '2022-03-03' ),
+(4, 'Piotr', 'Majewski', 'Analityk_Biznesowy', '2016-03-03', '2023-03-05' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(5, 'Katarzyna', 'Cicha', 'Cybersecurity', '2012-02-03', '2020-10-03' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(6, 'Adam', 'Niezgódka', 'Biznes Inteligence', '2020-01-12', '2024-11-03' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(7, 'Anna', 'Lewandowska', 'Fronted Developer', '2018-11-03', '2022-03-22' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(8, 'Paweł', 'Dobry', 'tester_automatyzujący', '2019-09-21', '2022-02-08' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(9, 'Maja', 'Lisiecka', 'UX_Designer', '2022-02-03', '2022-03-02' );
+
+insert into Mentors 
+(id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia )
+values
+(10, 'Dariusz', 'Zieliński', 'Scrum_Master_product_owner', '2017-03-19', '2020-03-15' );
+-- 4. Sprawdź, czy wszystkie dane wyświetlają się prawidłowo poprzez ich wyświetlenie.
+select id, Imię, Nazwisko, specjalizacja, data_zatrudnienia, data_zwolnienia from Mentors;  
+select * from Mentors;
+-- 5. Zmień Nazwisko Mentora w pozycji nr 5.
+
+update Mentors 
+set Nazwisko = "Kluska"
+where id=5; 
+-- 6. Sprawdź, czy dane zostały zmienione, wyświetlając tylko tę pozycję.
+Select * from mentors
+where id = 5;
+-- 7. Zmień specjalizację mentora w pozycji 9.
+update Mentors
+set specjalizacja = "Analityk_Danych"
+where id=9;
+
+-- 8. Sprawdź, czy dane zostały zmienione, wyświetlając tylko tę pozycję.
+Select * from mentors
+where id = 9;
+-- 9. Dodaj kolumnę o nazwie Wynagrodzenie, a także dobierz i ustaw constraints.
+Alter table mentors
+add column Wynagrodzenie integer;
+
+-- 10. Uzupełnij kolumnę wartością 1000 dla pozycji 1,2 oraz 3.
+update mentors 
+set Wynagrodzenie = 1000
+where id=1 and id=2 and id=3;
+-- 11. Wyświetl pozycję 1,2,3 i sprawdź, czy dane są prawidłowe.
+select * from mentors
+where id=1 or id=2 or id=3;
