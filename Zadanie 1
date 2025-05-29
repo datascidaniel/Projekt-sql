@@ -1,0 +1,71 @@
+   -- 1. Stwórz bazę danych
+   
+create database Zadanie_1; 
+
+-- 2. Stwórz tabelę nazwaną Biblioteczka z trzema kolumnami:
+
+-- ID, który przechowuje typ danych INTEGER
+-- Tytuł, który przechowuje typ TEXT
+-- Data zakupu, która przechowuje typ DATA
+
+CREATE table biblioteczka (
+ID INTEGER,
+tytuł TEXT,
+data_zakupu DATE 
+);
+
+-- 3. Dodaj książkę o Twoim ulubionym tytule do Biblioteczki wraz z pozostałymi danymi.
+
+insert into  biblioteczka 
+(ID, tytuł, data_zakupu )
+values 
+(3, 'Hobbit', '2012-06-23' );
+
+-- 4. Sprawdź, czy książka została dodana do bazy danych poprzez jej wyświetlenie.
+
+SELECT ID, tytuł, data_zakupu from biblioteczka;
+select * from biblioteczka;
+
+-- 5. Dodaj kolejne dwie ulubione książki do Biblioteczki wraz z identyfikatorem (wg. kolejności którą najbardziej lubisz) i pozostałymi danymi.
+insert into  biblioteczka 
+(ID, tytuł, data_zakupu )
+values  
+(1, 'Władca Pierścieni', '2013-07-08' ),
+(2, 'Wiedzmin', '2015-01-09' );
+
+-- 6. Zmień ulubioną książkę na książkę, która najmniej Ci się podoba.
+update biblioteczka
+ set tytuł  = "Hobbit" 
+ where ID = 1;
+
+update biblioteczka
+ set tytuł  = "władca_pierścieni" 
+ where ID = 3;
+ 
+
+
+-- 7. Dodaj nową kolumnę o nazwie Autor.
+Alter table biblioteczka 
+add column Autor TEXT ;
+--  8. Uzupełnij kolumnę Autor danymi dla każdego rekordu.
+
+update biblioteczka
+ set Autor  = "Tolkien" 
+ where ID = 3 ;
+ 
+update biblioteczka
+ set Autor  = "Tolkien" 
+ where ID = 1 ;
+ update biblioteczka
+ set Autor  = "Sapkowski" 
+ where ID =  2;
+
+-- 9. Usuń pozycje z ulubionymi książkami.
+delete from biblioteczka
+where ID=1;
+delete from biblioteczka
+where ID=3;
+
+-- 10. Wyświetl dane autora dla pozycji, która została w bazie
+
+SELECT Autor from biblioteczka;
