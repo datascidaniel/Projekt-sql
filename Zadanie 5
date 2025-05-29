@@ -1,0 +1,54 @@
+Zadanie 5
+-- 1. Załóż bazę o nazwie: Moje zainteresowania.
+create database zainteresowania;
+use zainteresowania;
+-- 2. Załóż tabelę o nazwie: Zainteresowania i utwórz 4 kolumny, a także dobierz i ustaw dla każdej CONSTRAINTS:
+
+
+-- ID
+-- Nazwa 
+-- Opis
+-- Data realizacji
+
+create table zainteresowania (
+id integer,
+Nazwa text,
+Opis text,
+Data_realizacji date );
+
+
+-- 3. Wprowadź dane tylko dla kolumn: Nazwa i Opis. (Min 5 pozycji)
+
+insert into zainteresowania
+(nazwa, opis)
+values ('Nurkowanie', 'Nauka nurkowania'),
+('Zwiedzanie','Zwiedzanie Barcelony'),
+('kajakarstwo','spływ rzeką Narew'),
+('informatyyka','zdobywanie_nowej_wiedzy'),
+('sport', 'budowanie_formy_fizycznej');
+
+
+-- 4. Sprawdź, czy wszystkie dane wyświetlają się prawidłowo i co pojawia się w kolumnie ID i Data realizacji.
+
+select * from zainteresowania;
+-- 5. Dodaj nową pozycję wypełniając wszystkie dane.
+insert into zainteresowania 
+values (6, 'wędkarstwo', 'rekreacja', '2019-09-08');
+-- 6. Dodaj brakujące dane dla wiersza 4.
+update Zainteresowania
+set id=4
+where Nazwa='kajakarswo';
+
+
+update Zainteresowania
+set data_realizacji='2020-04-04'
+where Nazwa='kajakarstwo';
+
+-- 7. Sprawdź, czy dane zostały zmienione, wyświetlając wszystkie pozycje.
+select * from zainteresowania;
+-- 8. Usuń wszystkie wiersze, w których jakaś z pozycji jest pusta.
+delete from zainteresowania 
+where id is NULL;
+
+-- 9. Sprawdź, czy dane zostały zmienione, wyświetlając je.
+select * from zainteresowania;
