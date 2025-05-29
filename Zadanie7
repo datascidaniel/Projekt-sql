@@ -1,0 +1,57 @@
+-- 1 Stwórz Bazę Pracownicy/Jeżeli ją już masz, zaktualizuj wpisy w tabelach.
+Create database Pracownicy;
+use  Pracownicy;
+-- 2 Stwórz Tabelę Pracownicy z pięcioma kolumnami, a także dobierz i ustaw dla każdej CONSTRAINTS:
+
+-- ID
+-- Imię
+-- Nazwisko
+-- Wiek
+-- Kurs
+
+Create table Pracownicy (
+id integer,
+imię text,
+Nazwisko text,
+wiek integer,
+kurs text);
+-- 3. Każdą tabelę uzupełnij danymi z załącznika lub zaktualizuj.
+insert into Pracownicy
+values (1,	'Anna',	'NOWAK',	34,	'DS.'),
+(2,	'Roman',	'KOWALSKI',	42,	'DS.'),
+(3,	'Tomasz',	'WIŚNIEWSKI',	33,	'DS.'),
+(4,	'Agata', 'WÓJCIK',	43,	'DS.'),
+(5,	'Elżbieta',	'KOWALCZYK',	28,	'Java'),
+(6,	'Przemysław',	null,	34,	'Java'),
+(7,	'Robert',	null,	35,	'Java'),
+(8,	'Radosław',	'ZIELIŃSKI',	38,	'Java'),
+(9,	'Anna',	'WOŹNIAK',	26,	'Java'),
+(10,	'Robert',	'SZYMAŃSKI',	34,	'Java'),
+(11,	'Radosław',	'DĄBROWSKI',	35,	null),
+(12,	'Robert',	'KOZŁOWSKI',	null,	'UX'),
+(13,	'Joanna',	'MAZUR',	26,	'UX'),
+(14,	'Radosław',	'JANKOWSKI',	27,	'UX'),
+(15,	'Patryk',	'LEWANDOWSKI',	28,	'Tester'),
+(16,	null,	'ZIELIŃSKI',	28,	'Tester'),
+(17,	'Andrzej',	'WOŹNIAK',	31,	'Tester'),
+(18,	'Andrze',	'LEWANDOWSKI',	30,	'Tester'),
+(19,	'Roman',	null,	39,	'Tester'),
+(20,	'Ewa',	'WOŹNIAK',	31,	'Tester');
+-- 4. Wyświetl listę pracowników w wieku 28 lat.
+select * from Pracownicy 
+where wiek=28;
+-- 5. Wyświetl listę pracowników w wieku 30 lat i młodszych.
+select * from Pracownicy 
+where wiek<=30;
+-- 6. Wyświetl listę pracowników, których nazwisko zawiera „ski”.
+select * from Pracownicy 
+where nazwisko like '%ski%';
+-- 7. Wyświetl listę pracowników z ID: 1,4,7,18,20.
+select * from Pracownicy 
+where id=1 or id=4 or id=7 or id=18 or id=20;
+-- 8. Wyświetl listę pracowników z wprowadzonymi kompletnymi danymi.
+select * from Pracownicy 
+where id is not null and imię is not null and Nazwisko is not null and wiek is not null and kurs is not null; 
+ --  9. Wyświetl wszystkich pracowników, którzy nie prowadzą kursu DS
+select * from Pracownicy 
+where kurs <> 'DS.' ;
